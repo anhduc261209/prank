@@ -10,12 +10,25 @@
 
 <body>
     <div align="center">
-        <video width="500px" height="500px" 
-        controls="controls"/> 
-          
-        <source src="rr.mp4" 
-            type="video/mp4"> 
-    </video> 
+        <video autoplay controls="controls" id="myvideo"/> 
+            <source src="rr.mp4" type="video/mp4"> 
+        </video> 
     </div>
+    <script>
+    /* Get the element you want displayed in fullscreen mode (a video in this example): */
+    var elem = document.getElementById("myvideo");
+
+    /* When the openFullscreen() function is executed, open the video in fullscreen.
+    Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    </script>
 </body>
 </html>
